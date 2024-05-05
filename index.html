@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number check</title>
+</head>
+<body>
+  <h1>Number Check</h1>
+  <input type="text" id="numberInput">
+  <button type="button" onclick="checkPrime()">Check Prime</button><br><br>
+  <button type="button" onclick="checkFactorial()">Check Factorial</button><br><br>
+  <button type="button" onclick="checkoddeven()">Check odd/even</button><br><br>
+  <button type="button" onclick="checkReverse()">Check Reverse</button><br><br>
+  <button type="button" onclick="checkPalindome()">Check Palindrome</button><br>
+  <p id="result"></p>
+
+  <script>
+    function checkPrime() {
+      const number = parseInt(document.getElementById("numberInput").value);
+      let isPrime = true;
+      if (number <= 1) {
+        isPrime = false;
+      } else {
+        for (let i = 2; i < number; i++) {
+          if (number % i === 0) {
+            isPrime = false;
+            break;
+          }
+        }
+      }
+      if (isPrime) {
+        document.getElementById("result").innerHTML = `${number} is a prime number.`;
+      } else {
+        document.getElementById("result").innerHTML = `${number} is not a prime number.`;
+      }
+    }
+    function checkFactorial() {
+      const number = parseInt(document.getElementById("numberInput").value);
+      let fact=1;
+      for (let i = 1; i <=number; i++){
+        fact=fact*i ; 
+      }
+      document.getElementById("result").innerHTML = `factorial of the number ${number} is ${fact} `;
+    }
+    function checkReverse() {
+      const number = document.getElementById("numberInput").value;
+      let res="";
+      for (let i = number.length-1; i >= 0;i--){
+        res+=number[i];
+      }
+      document.getElementById("result").innerHTML = `reverse of the number ${number} is ${res} `;
+    }
+    function checkPalindome() {
+      const number = document.getElementById("numberInput").value;
+      let res="";
+      for (let i = number.length-1; i >= 0;i--){
+        res+=number[i];
+      }
+      if (res===number){
+        
+        document.getElementById("result").innerHTML = `${number} is a palindrome number.`;
+      } 
+      else{
+        document.getElementById("result").innerHTML = `${number} is not a palindrome number.`;
+      }
+    }
+    function checkoddeven(){
+      const number = parseInt(document.getElementById("numberInput").value);
+      if (number % 2 === 0) {
+        document.getElementById("result").innerHTML = `${number} is an even number.`;
+      } else {
+        document.getElementById("result").innerHTML = `${number} is an odd number.`;
+      }
+    }
+
+    
+  </script>
+</body>
+</html>
